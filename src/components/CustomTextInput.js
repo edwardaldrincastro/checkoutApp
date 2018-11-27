@@ -14,11 +14,12 @@ class CustomTextInput extends Component {
                 <TextInput
                     underlineColorAndroid={"#00000000"}
                     style={{
-                        height: 50,
+                        height: 45,
                         width: "100%",
                         borderWidth: 1,
                         borderColor: '#333333',
                         backgroundColor: '#fff',
+                        borderRadius: 4
                     }}
                 />
             </View>

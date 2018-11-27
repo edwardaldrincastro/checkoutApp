@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, ScrollView, CheckBox, } from 'react-native';
+import { View, Text, StyleSheet, ScrollView, CheckBox, Dimensions } from 'react-native';
 import { CustomTextInput, CustomButton, LocalImage } from "../components";
 import { BusinessIcon } from "../utilities/icons";
 import { shipping_company } from "../utilities/data/sample_data";
@@ -12,9 +12,9 @@ class Shipping extends Component {
 
   render() {
     return (
-      <ScrollView style={styles.container}>
+      <ScrollView contentContainerStyle={styles.container}>
         <View style={styles.shippingTypeContainer}>
-          <Text style={[styles.addressTextStyle, { paddingVertical: 10 }]}>Which shipping partner do you like?</Text>
+          <Text style={[styles.addressTextStyle, { paddingVertical: 15 }]}>Which shipping partner do you like?</Text>
           
           {shipping_company.map((item, index) => (
           <View style={styles.shippingCompanyContainer} key={index}>
@@ -30,7 +30,7 @@ class Shipping extends Component {
               </View>
               <View style={styles.companyDetails}>
                 <Text style={[styles.companyName, {fontSize: 16}]}>{item.name}</Text>
-                <Text style={[styles.addressTextStyle, {fontSize: 14}]}>{item.cost}</Text>
+                <Text style={[styles.addressTextStyle, {fontSize: 12}]}>{item.cost}</Text>
               </View>
             </View>
           </View>
@@ -66,7 +66,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    paddingVertical: 15,
+    paddingVertical: 1,
+    minHeight: Dimensions.get("window").height * 0.83
   },
   addressTextStyle: {
     fontSize: 16,
@@ -82,7 +83,6 @@ const styles = StyleSheet.create({
   },
   shippingTypeContainer: {
     flex: 3.5,
-    minHeight: 355,
   },
   shippingCompanyContainer: {
     flex: 1,
@@ -116,7 +116,6 @@ const styles = StyleSheet.create({
   },
   shippingAddressContainer: {
     flex: 2.5,
-    minHeight: 260,
     borderTopWidth: 1,
     borderTopColor: '#8d8d8d',
   },
@@ -130,7 +129,6 @@ const styles = StyleSheet.create({
   },
   buttonContainer: {
     flex: 1,
-    minHeight: 100,
     justifyContent: 'flex-end',
   },
 

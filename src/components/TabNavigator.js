@@ -5,14 +5,15 @@ import CardStackStyleInterpolator from "react-navigation-stack/dist/views/StackV
 import AddressPage from "../screens/AddressPage";
 import Payment from "../screens/Payment";
 import Shipping from "../screens/Shipping";
+import PaymentStack from "./PaymentStack";
 import { MenuIcon } from "../utilities/icons";
 export default StackNavigator = createMaterialTopTabNavigator({
     Address: AddressPage,
     Shipping: Shipping,
-    Payment: Payment,
+    Payment: PaymentStack,
 },
     {
-        initialRouteName: 'Shipping',
+        initialRouteName: 'Payment',
         
     }
 )

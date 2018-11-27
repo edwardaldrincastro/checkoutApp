@@ -5,10 +5,11 @@ import CardStackStyleInterpolator from "react-navigation-stack/dist/views/StackV
 import AddressPage from "../screens/AddressPage";
 import Payment from "../screens/Payment";
 import Shipping from "../screens/Shipping";
+import PaymentStack from "./PaymentStack";
 import { MenuIcon } from "../utilities/icons";
 export default StackNavigator = createStackNavigator({
     Address: AddressPage,
-    Payment: Payment,
+    Payment: PaymentStack,
     Shipping: Shipping,
 },
     {

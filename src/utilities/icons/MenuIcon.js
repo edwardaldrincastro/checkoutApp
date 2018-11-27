@@ -7,7 +7,7 @@ class MenuIcon extends Component {
     render() {
         return (
             <View style={styles.iconContainer}>
-                <Icon name="md-menu" size={25} color="#fff" onPress={() => alert('Drawer')} />
+                <Icon name="md-menu" size={36} color="#fff" onPress={() => alert('Drawer')} />
             </View>
         )
     }

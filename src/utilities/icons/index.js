@@ -1,3 +1,5 @@
 import MenuIcon from "./MenuIcon";
 import BusinessIcon from "./BusinessIcon";
-export { MenuIcon, BusinessIcon }
+import CameraIcon from "./CameraIcon";
+import HelpIcon from "./HelpIcon";
+export { MenuIcon, BusinessIcon, CameraIcon, HelpIcon}
