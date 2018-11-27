@@ -33,7 +33,11 @@ class PaymentDetails extends Component {
                                 <CustomTextInput />
                             </View>
                             <View style={styles.creditCardCompany}>
-                                <Text>Visa</Text>
+                                <LocalImage source={require('../assets/images/visa.png')}
+                                    originalWidth={5000}
+                                    originalHeight={1533}
+                                    type='visa'
+                                />
                             </View>
                         </View>
                     </View>
@@ -57,7 +61,7 @@ class PaymentDetails extends Component {
 
                     </View>
                     <View style={styles.agreementContainer}>
-                        <View style={{ flex: 1, justifyContent: 'flex-start', alignItems: 'center', paddingTop: 15}}>
+                        <View style={{ flex: 1, justifyContent: 'flex-start', alignItems: 'center', paddingTop: 15 }}>
                             <CheckBox />
                         </View>
                         <View style={styles.termsContainer}>
@@ -67,7 +71,7 @@ class PaymentDetails extends Component {
                         </View>
                     </View>
                 </View>
-                <View style={{ flex: 1 }} />
+                <View style={{ flex: 1.2 }} />
                 <View style={styles.buttonContainer}>
                     <CustomButton onPress={() => this.props.navigation.navigate('PaymentMode')} buttonText='Finish your order' />
                 </View>
@@ -101,8 +105,7 @@ const styles = StyleSheet.create({
         color: '#F38B4C'
     },
     paymentDetailsContainer: {
-        flex: 5,
-        backgroundColor: '#1E1E1E',
+        flex: 4,
     },
     scannerContainer: {
         flex: 1
@@ -130,8 +133,7 @@ const styles = StyleSheet.create({
         flex: 4
     },
     creditCardContainer: {
-        flex: 1,
-        backgroundColor: '#6AB785',
+        flex: 0.8,
         justifyContent: 'center',
     },
     creditCardInputContainer: {
@@ -143,16 +145,16 @@ const styles = StyleSheet.create({
     },
     creditCardCompany: {
         flex: 1,
+        justifyContent: 'center',
+        padding: 5
     },
     creditCardDetails: {
-        flex: 1,
+        flex: 0.8,
         flexDirection: 'row',
-        backgroundColor: '#CE9178'
     },
     agreementContainer: {
         flex: 1,
         flexDirection: 'row',
-        backgroundColor: '#007ACC'
     },
     expiryContainer: {
         flex: 5,

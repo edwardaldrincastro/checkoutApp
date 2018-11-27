@@ -26,6 +26,7 @@ class Shipping extends Component {
                 <LocalImage source={item.image}
                   originalWidth={item.width}
                   originalHeight={item.height}
+                  type={item.type}
                 />
               </View>
               <View style={styles.companyDetails}>
@@ -99,7 +100,6 @@ const styles = StyleSheet.create({
   },
   companyLogo: {
     flex: 1,
-    backgroundColor: '#007ACC',
     alignItems: 'flex-start',
     justifyContent: 'center'
   },
