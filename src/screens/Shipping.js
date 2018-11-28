@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet, ScrollView, CheckBox, Dimensions } from 'react-native';
-import { CustomTextInput, CustomButton, LocalImage } from "../components";
+import { CustomButton, LocalImage } from "../components";
 import { BusinessIcon } from "../utilities/icons";
 import { shipping_company } from "../utilities/data/sample_data";
 class Shipping extends Component {
@@ -12,51 +12,53 @@ class Shipping extends Component {
 
   render() {
     return (
-      <ScrollView contentContainerStyle={styles.container}>
-        <View style={styles.shippingTypeContainer}>
-          <Text style={[styles.addressTextStyle, { paddingVertical: 15 }]}>Which shipping partner do you like?</Text>
-          
-          {shipping_company.map((item, index) => (
-          <View style={styles.shippingCompanyContainer} key={index}>
-            <View style={styles.checkBoxContainer}>
-              <CheckBox />
-            </View>
-            <View style={styles.shippingDetails}>
-              <View style={styles.companyLogo}>
-                <LocalImage source={item.image}
-                  originalWidth={item.width}
-                  originalHeight={item.height}
-                  type={item.type}
-                />
+      <ScrollView>
+        <View style={styles.container}>
+          <View style={styles.shippingTypeContainer}>
+            <Text style={[styles.addressTextStyle, { paddingVertical: 15 }]}>Which shipping partner do you like?</Text>
+
+            {shipping_company.map((item, index) => (
+              <View style={styles.shippingCompanyContainer} key={index}>
+                <View style={styles.checkBoxContainer}>
+                  <CheckBox />
+                </View>
+                <View style={styles.shippingDetails}>
+                  <View style={styles.companyLogo}>
+                    <LocalImage source={item.image}
+                      originalWidth={item.width}
+                      originalHeight={item.height}
+                      type={item.type}
+                    />
+                  </View>
+                  <View style={styles.companyDetails}>
+                    <Text style={[styles.companyName, { fontSize: 16 }]}>{item.name}</Text>
+                    <Text style={[styles.addressTextStyle, { fontSize: 12 }]}>{item.cost}</Text>
+                  </View>
+                </View>
               </View>
-              <View style={styles.companyDetails}>
-                <Text style={[styles.companyName, {fontSize: 16}]}>{item.name}</Text>
-                <Text style={[styles.addressTextStyle, {fontSize: 12}]}>{item.cost}</Text>
-              </View>
+            ))}
+
+          </View>
+
+          <View style={styles.shippingAddressContainer}>
+
+            <View style={styles.shippingAddressTitle}>
+              <Text style={styles.addressTextStyle}>Shipping Address</Text>
+              <BusinessIcon />
             </View>
+
+            <View style={styles.shippingAddressDetails}>
+              <Text style={styles.shippingAddressTextStyle}>Johnny Doe</Text>
+              <Text style={styles.shippingAddressTextStyle}>11144 Military Trail (North)</Text>
+              <Text style={styles.shippingAddressTextStyle}>Apartment #3122</Text>
+              <Text style={styles.shippingAddressTextStyle}>23122 Palo Alot</Text>
+              <Text style={styles.shippingAddressTextStyle}>California, United States</Text>
+            </View>
+
           </View>
-          ))}
-      
-        </View>
-
-        <View style={styles.shippingAddressContainer}>
-
-          <View style={styles.shippingAddressTitle}>
-            <Text style={styles.addressTextStyle}>Shipping Address</Text>
-            <BusinessIcon />
+          <View style={styles.buttonContainer}>
+            <CustomButton onPress={() => this.props.navigation.navigate('Payment')} buttonText='Next Step' />
           </View>
-
-          <View style={styles.shippingAddressDetails}>
-            <Text style={styles.shippingAddressTextStyle}>Johnny Doe</Text>
-            <Text style={styles.shippingAddressTextStyle}>11144 Military Trail (North)</Text>
-            <Text style={styles.shippingAddressTextStyle}>Apartment #3122</Text>
-            <Text style={styles.shippingAddressTextStyle}>23122 Palo Alot</Text>
-            <Text style={styles.shippingAddressTextStyle}>California, United States</Text>
-          </View>
-
-        </View>
-        <View style={styles.buttonContainer}>
-          <CustomButton onPress={() => this.props.navigation.navigate('Payment')} buttonText='Next Step' />
         </View>
       </ScrollView>
     );
@@ -84,6 +86,7 @@ const styles = StyleSheet.create({
   },
   shippingTypeContainer: {
     flex: 3.5,
+    minHeight: 355
   },
   shippingCompanyContainer: {
     flex: 1,
@@ -118,6 +121,7 @@ const styles = StyleSheet.create({
     flex: 2.5,
     borderTopWidth: 1,
     borderTopColor: '#8d8d8d',
+    minHeight: 224
   },
   shippingAddressDetails: {
     paddingVertical: 10,
@@ -130,6 +134,7 @@ const styles = StyleSheet.create({
   buttonContainer: {
     flex: 1,
     justifyContent: 'flex-end',
+    minHeight: 80
   },
 
 })

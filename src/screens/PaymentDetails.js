@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { View, Text, StyleSheet, ScrollView, CheckBox, Dimensions } from 'react-native';
 import { CustomTextInput, CustomButton, LocalImage } from "../components";
 import { CameraIcon, HelpIcon } from "../utilities/icons";
-import { payment_method } from "../utilities/data/sample_data";
 class PaymentDetails extends Component {
     constructor(props) {
         super(props);
@@ -12,68 +11,69 @@ class PaymentDetails extends Component {
 
     render() {
         return (
-            <ScrollView contentContainerStyle={styles.container}>
-
-                <View style={styles.paymentDetailsContainer}>
-                    <View style={styles.scannerContainer}>
-                        <Text style={[styles.addressTextStyle, { paddingVertical: 10 }]}>Scan your card</Text>
-                        <View style={styles.cardScanner}>
-                            <View style={styles.scanCard}>
-                                <View style={{ flex: 1, alignItems: 'center' }}>
-                                    <CameraIcon />
-                                </View>
-                                <Text style={styles.saveTime}>Save time and scan your credit card</Text>
-                            </View>
-                        </View>
-                    </View>
-                    <View style={styles.creditCardContainer}>
-                        <Text style={styles.addressTextStyle}>Credit Card #No</Text>
-                        <View style={styles.creditCardInputContainer}>
-                            <View style={styles.creditCardNumber}>
-                                <CustomTextInput />
-                            </View>
-                            <View style={styles.creditCardCompany}>
-                                <LocalImage source={require('../assets/images/visa.png')}
-                                    originalWidth={5000}
-                                    originalHeight={1533}
-                                    type='visa'
-                                />
-                            </View>
-                        </View>
-                    </View>
-                    <View style={styles.creditCardDetails}>
-                        <View style={styles.expiryContainer}>
-                            <Text style={styles.addressTextStyle}>Expires</Text>
-                            <CustomTextInput />
-                        </View>
-                        <View style={styles.cvvContainer}>
-                            <View style={{ flex: 4 }}>
-
-                                <Text style={styles.addressTextStyle}>CVV Code</Text>
-                                <CustomTextInput />
-                            </View>
-                            <View style={styles.questionMarkContainer}>
-                                <View style={styles.helpContainer}>
-                                    <HelpIcon />
+            <ScrollView>
+                <View style={styles.container}>
+                    <View style={styles.paymentDetailsContainer}>
+                        <View style={styles.scannerContainer}>
+                            <Text style={[styles.addressTextStyle, { paddingVertical: 10 }]}>Scan your card</Text>
+                            <View style={styles.cardScanner}>
+                                <View style={styles.scanCard}>
+                                    <View style={{ flex: 1, alignItems: 'center' }}>
+                                        <CameraIcon />
+                                    </View>
+                                    <Text style={styles.saveTime}>Save time and scan your credit card</Text>
                                 </View>
                             </View>
                         </View>
-
-                    </View>
-                    <View style={styles.agreementContainer}>
-                        <View style={{ flex: 1, justifyContent: 'flex-start', alignItems: 'center', paddingTop: 15 }}>
-                            <CheckBox />
+                        <View style={styles.creditCardContainer}>
+                            <Text style={styles.addressTextStyle}>Credit Card #No</Text>
+                            <View style={styles.creditCardInputContainer}>
+                                <View style={styles.creditCardNumber}>
+                                    <CustomTextInput />
+                                </View>
+                                <View style={styles.creditCardCompany}>
+                                    <LocalImage source={require('../assets/images/visa.png')}
+                                        originalWidth={5000}
+                                        originalHeight={1533}
+                                        type='visa'
+                                    />
+                                </View>
+                            </View>
                         </View>
-                        <View style={styles.termsContainer}>
-                            <Text style={styles.agreeTextStyle}>Agree to our terms & conditions</Text>
-                            <Text style={styles.addressTextStyle}>I agree that I have read and accepted our <Text style={styles.colored}>terms & conditions</Text> for your purchase</Text>
+                        <View style={styles.creditCardDetailsContainer}>
+                            <View style={styles.expiryContainer}>
+                                <Text style={styles.addressTextStyle}>Expires</Text>
+                                <CustomTextInput />
+                            </View>
+                            <View style={styles.cvvContainer}>
+                                <View style={{ flex: 4 }}>
+
+                                    <Text style={styles.addressTextStyle}>CVV Code</Text>
+                                    <CustomTextInput />
+                                </View>
+                                <View style={styles.questionMarkContainer}>
+                                    <View style={styles.helpContainer}>
+                                        <HelpIcon />
+                                    </View>
+                                </View>
+                            </View>
 
                         </View>
+                        <View style={styles.agreementContainer}>
+                            <View style={{ flex: 1, justifyContent: 'flex-start', alignItems: 'center', paddingTop: 35 }}>
+                                <CheckBox />
+                            </View>
+                            <View style={styles.termsContainer}>
+                                <Text style={styles.agreeTextStyle}>Agree to our terms & conditions</Text>
+                                <Text style={styles.addressTextStyle}>I agree that I have read and accepted our <Text style={styles.colored}>terms & conditions</Text> for your purchase</Text>
+
+                            </View>
+                        </View>
                     </View>
-                </View>
-                <View style={{ flex: 1.2 }} />
-                <View style={styles.buttonContainer}>
-                    <CustomButton onPress={() => this.props.navigation.navigate('PaymentMode')} buttonText='Finish your order' />
+                    <View style={styles.shippingAddressContainer} />
+                    <View style={styles.buttonContainer}>
+                        <CustomButton onPress={() => this.props.navigation.navigate('PaymentMode')} buttonText='Finish your order' />
+                    </View>
                 </View>
             </ScrollView>
         );
@@ -105,17 +105,12 @@ const styles = StyleSheet.create({
         color: '#F38B4C'
     },
     paymentDetailsContainer: {
-        flex: 4,
+        flex: 4.5,
+        minHeight: 355
     },
     scannerContainer: {
-        flex: 1
-    },
-    conditionsText: {
         flex: 1,
-    },
-    termsText: {
-        flex: 5,
-        justifyContent: 'flex-start'
+        minHeight: 100
     },
     scanCard: {
         height: 50,
@@ -135,6 +130,7 @@ const styles = StyleSheet.create({
     creditCardContainer: {
         flex: 0.8,
         justifyContent: 'center',
+        minHeight: 80
     },
     creditCardInputContainer: {
         flex: 1,
@@ -148,17 +144,26 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         padding: 5
     },
-    creditCardDetails: {
+    creditCardDetailsContainer: {
         flex: 0.8,
         flexDirection: 'row',
+        minHeight: 80,
     },
     agreementContainer: {
         flex: 1,
         flexDirection: 'row',
+        minHeight: 120
+    },
+    conditionsText: {
+        flex: 1,
+    },
+    termsText: {
+        flex: 5,
+        justifyContent: 'flex-start'
     },
     expiryContainer: {
         flex: 5,
-        justifyContent: 'center'
+        justifyContent: 'center',
     },
     cvvContainer: {
         flex: 4,

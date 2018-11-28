@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, ScrollView, CheckBox, Dimensions} from 'react-native';
-import { CustomTextInput, CustomButton, LocalImage } from "../components";
-import { BusinessIcon } from "../utilities/icons";
+import { View, Text, StyleSheet, ScrollView, CheckBox, Dimensions } from 'react-native';
+import { CustomButton, LocalImage } from "../components";
 import { payment_method } from "../utilities/data/sample_data";
 class Payment extends Component {
   constructor(props) {
@@ -12,36 +11,38 @@ class Payment extends Component {
 
   render() {
     return (
-      <ScrollView contentContainerStyle={styles.container}>
-        <View style={styles.shippingTypeContainer}>
-          <Text style={[styles.addressTextStyle, { paddingVertical: 10 }]}>How do you wish to pay?</Text>
-          
-          {payment_method.map((item, index) => (
-          <View style={styles.shippingCompanyContainer} key={index}>
-            <View style={styles.checkBoxContainer}>
-              <CheckBox />
-            </View>
-            <View style={styles.shippingDetails}>
-              <View style={styles.companyLogo}>
-                <LocalImage source={item.image}
-                  originalWidth={item.width}
-                  originalHeight={item.height}
-                />
-              </View>
-              <View style={styles.companyDetails}>
-                <Text style={[styles.companyName, {fontSize: 16}]}>{item.name}</Text>
-                <Text style={[styles.addressTextStyle, {fontSize: 12}]}>{item.cost}</Text>
-              </View>
-            </View>
-          </View>
-          ))}
-      
-        </View>
+      <ScrollView>
+        <View style={styles.container}>
+          <View style={styles.shippingTypeContainer}>
+            <Text style={[styles.addressTextStyle, { paddingVertical: 10 }]}>How do you wish to pay?</Text>
 
-        <View style={styles.shippingAddressContainer}>
-        </View>
-        <View style={styles.buttonContainer}>
-          <CustomButton onPress={() => this.props.navigation.navigate('PaymentDetails')} buttonText='Next Step' />
+            {payment_method.map((item, index) => (
+              <View style={styles.shippingCompanyContainer} key={index}>
+                <View style={styles.checkBoxContainer}>
+                  <CheckBox />
+                </View>
+                <View style={styles.shippingDetails}>
+                  <View style={styles.companyLogo}>
+                    <LocalImage source={item.image}
+                      originalWidth={item.width}
+                      originalHeight={item.height}
+                    />
+                  </View>
+                  <View style={styles.companyDetails}>
+                    <Text style={[styles.companyName, { fontSize: 16 }]}>{item.name}</Text>
+                    <Text style={[styles.addressTextStyle, { fontSize: 12 }]}>{item.cost}</Text>
+                  </View>
+                </View>
+              </View>
+            ))}
+
+          </View>
+
+          <View style={styles.shippingAddressContainer}>
+          </View>
+          <View style={styles.buttonContainer}>
+            <CustomButton onPress={() => this.props.navigation.navigate('PaymentDetails')} buttonText='Next Step' />
+          </View>
         </View>
       </ScrollView>
     );
@@ -68,11 +69,13 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20
   },
   shippingTypeContainer: {
-    flex: 3.5,
+      flex: 3.5,
+      minHeight: 355
   },
   shippingCompanyContainer: {
     flex: 1,
     flexDirection: 'row',
+    minHeight: 100
   },
   checkBoxContainer: {
     flex: 1,
@@ -100,9 +103,10 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20
   },
   shippingAddressContainer: {
-    flex: 2.5,
+    flex: 3,
     borderTopWidth: 1,
     borderTopColor: '#8d8d8d',
+    minHeight: 224
   },
   shippingAddressDetails: {
     paddingVertical: 10,
@@ -115,6 +119,7 @@ const styles = StyleSheet.create({
   buttonContainer: {
     flex: 1,
     justifyContent: 'flex-end',
+    minHeight: 80
   },
 
 })

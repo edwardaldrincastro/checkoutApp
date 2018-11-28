@@ -7,56 +7,57 @@ class AddressPage extends Component {
         this.state = {
         };
     }
-
     render() {
         return (
-            <ScrollView contentContainerStyle={styles.container}>
-                <View style={[styles.nameContainer, { paddingTop: 15 }]}>
-                    <Text style={styles.addressTextStyle}>Your Name</Text>
-                    <View style={styles.nameInputContainer}>
-                        <View style={styles.firstName}>
-                            <CustomTextInput />
-                        </View>
-                        <View style={styles.lastName}>
-                            <CustomTextInput />
+            <ScrollView>
+                <View style={styles.container}>
+                    <View style={[styles.nameContainer, { paddingTop: 15 }]}>
+                        <Text style={styles.addressTextStyle}>Your Name</Text>
+                        <View style={styles.nameInputContainer}>
+                            <View style={styles.firstName}>
+                                <CustomTextInput />
+                            </View>
+                            <View style={styles.lastName}>
+                                <CustomTextInput />
+                            </View>
                         </View>
                     </View>
-                </View>
-                <View style={styles.addressFirstContainer}>
-                    <Text style={styles.addressTextStyle}>Address line 1</Text>
-                    <CustomTextInput />
-                </View>
-                <View style={styles.addressSecondContainer}>
-                    <Text style={styles.addressTextStyle}>Address line 2</Text>
-                    <CustomTextInput />
-                </View>
-                <View style={styles.locationContainer}>
+                    <View style={styles.addressFirstContainer}>
+                        <Text style={styles.addressTextStyle}>Address line 1</Text>
+                        <CustomTextInput />
+                    </View>
+                    <View style={styles.addressSecondContainer}>
+                        <Text style={styles.addressTextStyle}>Address line 2</Text>
+                        <CustomTextInput />
+                    </View>
+                    <View style={styles.locationContainer}>
 
-                    <View style={styles.cityContainer}>
-                        <Text style={styles.addressTextStyle}>City</Text>
-                        <CustomTextInput />
+                        <View style={styles.cityContainer}>
+                            <Text style={styles.addressTextStyle}>City</Text>
+                            <CustomTextInput />
+                        </View>
+                        <View style={styles.zipContainer}>
+                            <Text style={styles.addressTextStyle}>Zip</Text>
+                            <CustomTextInput />
+                        </View>
                     </View>
-                    <View style={styles.zipContainer}>
-                        <Text style={styles.addressTextStyle}>Zip</Text>
-                        <CustomTextInput />
+                    <View style={styles.placeContainer}>
+                        <View style={styles.stateContainer}>
+                            <Text style={styles.addressTextStyle}>State</Text>
+                            <CustomTextInput />
+                        </View>
+                        <View style={styles.countryContainer}>
+                            <Text style={styles.addressTextStyle}>Country</Text>
+                            <CustomTextInput />
+                        </View>
                     </View>
-                </View>
-                <View style={styles.placeContainer}>
-                    <View style={styles.stateContainer}>
-                        <Text style={styles.addressTextStyle}>State</Text>
-                        <CustomTextInput />
+                    <View style={styles.shippingContainer}>
+                        <Text style={styles.addressTextStyle}>Shipping Options</Text>
+                        <Text style={[styles.addressTextStyle, { color: '#F38B4C', paddingTop: 10 }]}>Please ship to another address</Text>
                     </View>
-                    <View style={styles.countryContainer}>
-                        <Text style={styles.addressTextStyle}>Country</Text>
-                        <CustomTextInput />
+                    <View style={styles.buttonContainer}>
+                        <CustomButton onPress={() => this.props.navigation.navigate('Shipping')} buttonText='Next Step' />
                     </View>
-                </View>
-                <View style={styles.shippingContainer}>
-                    <Text style={styles.addressTextStyle}>Shipping Options</Text>
-                    <Text style={[styles.addressTextStyle, { color: '#F38B4C', paddingTop: 10 }]}>Please ship to another address</Text>
-                </View>
-                <View style={styles.buttonContainer}>
-                    <CustomButton onPress={() => this.props.navigation.navigate('Shipping')} buttonText='Next Step' />
                 </View>
             </ScrollView>
         );
@@ -78,6 +79,7 @@ const styles = StyleSheet.create({
     },
     nameContainer: {
         flex: 1,
+        minHeight: 95
     },
     nameText: {
         flex: 1,
@@ -96,15 +98,18 @@ const styles = StyleSheet.create({
     addressFirstContainer: {
         flex: 1,
         justifyContent: 'space-around',
+        minHeight: 95
     },
     addressSecondContainer: {
         flex: 1,
         justifyContent: 'space-around',
+        minHeight: 95
     },
 
     locationContainer: {
         flex: 1,
         flexDirection: 'row',
+        minHeight: 95
     },
     cityContainer: {
         flex: 1,
@@ -117,6 +122,7 @@ const styles = StyleSheet.create({
     placeContainer: {
         flex: 1,
         flexDirection: 'row',
+        minHeight: 95
     },
     stateContainer: {
         flex: 1,
@@ -129,10 +135,12 @@ const styles = StyleSheet.create({
     shippingContainer: {
         flex: 1,
         justifyContent: 'center',
+        minHeight: 95
     },
     buttonContainer: {
         flex: 1,
         justifyContent: 'flex-end',
+        minHeight: 80
     },
 
 })

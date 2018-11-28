@@ -55,8 +55,8 @@ export const payment_method = [
         cost: "applepay@gmail.com",
         image: require('checkoutApp/src/assets/images/applepay.png'),
         type: 'applepay',
-        width: 600,
-        height: 600
+        width: 2000,
+        height: 820
      
     },
     
